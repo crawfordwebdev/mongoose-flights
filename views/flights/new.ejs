@@ -12,7 +12,7 @@
     <label for="flightNo" class="flightInfo">flight number:</label>
     <input type="text" name="flightNo" id="flightNo-input" required>
     <label for="departs" class="flightInfo">departs:</label>
-    <input type="text" name="departs" id="departs-input">
+    <input type="datetime-local" name="departs" value="<%= departs %>" id="departs-input">
     <button type="submit">Add Flight</button>
   </form>
 </main>
