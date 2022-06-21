@@ -4,6 +4,12 @@ import { Flight } from '../models/flight.js'
 function index(req, res) {
   Flight.find({})
   .then(flights => {
+
+    flights.forEach( flight => {
+      if (flight.departs.toISOString() < new Date().toISOString()) {
+        flight.color = 'red'
+      }
+    })
     res.render('flights', {
       title: "All Flights",
       flights: flights
