@@ -1,10 +1,12 @@
 table {
   font-size: 20px;
+  background-color: rgba(25, 25, 25, .75);
+  color: white;
 }
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid #424748;
+  border-bottom: 2px solid white;
 }
 
 table td {
@@ -35,5 +37,5 @@ table td {
 }
 
 .red {
-  color: red;
+  color: rgb(255, 60, 60);
 }
