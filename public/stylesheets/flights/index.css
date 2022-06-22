@@ -36,12 +36,16 @@ table td {
   background-color: white;
 }
 
-.red {
-  color: rgb(255, 121, 121);
-}
-
 tbody a,
 tbody a:visited {
-  color: white;
+  color: rgb(33, 145, 251);
   text-decoration: none;
+}
+
+#flight-list {
+  border-radius: 10px;
+}
+
+.red {
+  color: rgb(255, 121, 121); 
 }
