@@ -11,7 +11,6 @@ const ticketSchema = new Schema({
     type: Number,
     min: 0
   }
-
 })
 
 const flightSchema = new Schema({
@@ -35,13 +34,17 @@ const flightSchema = new Schema({
       const oneYearFromNow = today.getFullYear() + 1
       today.setFullYear(oneYearFromNow)
       return today
-    }
+    },
   },
+  meals: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Meal'
+  }],
   tickets: [ticketSchema]
 })
 
-const Flight = mongoose.model("Flights", flightSchema)
+const Flight = mongoose.model("Flight", flightSchema)
 
 export {
-  Flight
+  Flight,
 }
