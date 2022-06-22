@@ -100,3 +100,10 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+
+.bg-card {
+  background-color: rgba(255, 255, 255, .9);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+}
