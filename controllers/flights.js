@@ -56,7 +56,7 @@ function show(req, res) {
   .then(flight => {
     res.render("flights/show", {
       flight: flight,
-      title: `${flight.airline} ${flight.flightNo}`
+      title: `${flight.airline}: Flight ${flight.flightNo}`
     })
   })
   .catch(err => {
@@ -91,6 +91,22 @@ function deleteFlight(req, res) {
   })
 }
 
+function deleteTicket(req, res) {
+  Flight.findById(req.params.id)
+  .then(flight => {
+    flight.tickets[req.params.idx].remove()
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
+
 export {
   newFlight as new,
   create,
@@ -98,4 +114,5 @@ export {
   show,
   createTicket,
   deleteFlight as delete,
+  deleteTicket
 }
