@@ -37,5 +37,11 @@ table td {
 }
 
 .red {
-  color: rgb(255, 60, 60);
+  color: rgb(255, 121, 121);
+}
+
+tbody a,
+tbody a:visited {
+  color: white;
+  text-decoration: none;
 }
