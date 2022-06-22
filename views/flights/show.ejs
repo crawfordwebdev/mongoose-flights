@@ -55,8 +55,47 @@
     <h3>No Tickets Yet</h3> 
   <% } %> 
 </section>
+<section id="add-meal-section">
+  <h2>Meals</h2><br>
+
+  <form id="add-meal-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
+    <select name="mealId">
+      <% meals.forEach(meal => { %>
+        <option value="<%= meal._id %>"><%= meal.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add to Flight</button>
+  </form>
+</section>
+
+<section id="meal-list-section">
+  <h3>Flight Meals:</h3><br>
+  <% if (flight.meals.length) { %>
+    <table id="meal-list">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.meals.forEach(meal => { %>
+          <tr>
+            <td><%= meal.name %></td>
+            <td>
+              <form action="/flights/<%= flight._id %>/meals/<%= meal._id %>?_method=DELETE" method="POST">
+                <button>X</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3>No meals for this flight</h3> 
+  <% } %> 
+
+</section>
 </main>
-
-
   
 <%- include('../partials/footer') %>
